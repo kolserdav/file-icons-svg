@@ -1,7 +1,7 @@
 const ICONS = [
   {
     v: "TXT",
-    s: "fill: gray; stroke: purple;",
+    s: "fill: gray; stroke: lavender;",
     p: "30,75 153,75 153,150 30,150",
     x: "35",
     f: "font-size: 60px",
@@ -9,7 +9,7 @@ const ICONS = [
   },
   {
     v: "PDF",
-    s: "fill: brown; stroke: purple;",
+    s: "fill: brown; stroke: indianred;",
     p: "30,75 153,75 153,150 30,150",
     x: "35",
     f: "font-size: 60px",
@@ -17,7 +17,7 @@ const ICONS = [
   },
   {
     v: "DOC",
-    s: "fill: blue; stroke: purple;",
+    s: "fill: blue; stroke: navy;",
     p: "20,75 153,75 153,150 20,150",
     x: "26",
     f: "font-size: 60px",
@@ -25,7 +25,7 @@ const ICONS = [
   },
   {
     v: "XML",
-    s: "fill: purple; stroke: purple;",
+    s: "fill: purple; stroke: magenta;",
     p: "15,75 153,75 153,150 15,150",
     x: "21",
     f: "font-size: 60px",
@@ -33,7 +33,7 @@ const ICONS = [
   },
   {
     v: "PSD",
-    s: "fill: darkblue; stroke: purple;",
+    s: "fill: darkblue; stroke: mediumblue;",
     p: "30,75 153,75 153,150 30,150",
     x: "35",
     f: "font-size: 60px",
@@ -41,7 +41,7 @@ const ICONS = [
   },
   {
     v: "ZIP",
-    s: "fill: darkred; stroke: purple;",
+    s: "fill: darkred; stroke: maroon;",
     p: "50,75 153,75 153,150 50,150",
     x: "56",
     f: "font-size: 60px",
@@ -49,7 +49,7 @@ const ICONS = [
   },
   {
     v: "JSON",
-    s: "fill: yellow; stroke: purple;",
+    s: "fill: yellow; stroke: orange;",
     p: "10,82 153,82 153,150 10,150",
     x: "15",
     f: "font-size: 52px",
@@ -57,7 +57,7 @@ const ICONS = [
   },
   {
     v: "XLSX",
-    s: "fill: green; stroke: purple;",
+    s: "fill: green; stroke: lime;",
     p: "10,80 153,80 153,150 10,150",
     x: "15",
     f: "font-size: 55px",
@@ -65,7 +65,7 @@ const ICONS = [
   },
   {
     v: "CSV",
-    s: "fill: lightblue; stroke: purple;",
+    s: "fill: lightblue; stroke: lightskyblue;",
     p: "26,75 153,75 153,150 26,150",
     x: "30",
     f: "font-size: 60px",
@@ -73,7 +73,7 @@ const ICONS = [
   },
   {
     v: "7z",
-    s: "fill: cadetblue; stroke: purple;",
+    s: "fill: cadetblue; stroke: mediumturquoise;",
     p: "50,65 153,65 153,150 50,150",
     x: "58",
     f: "font-size: 80px",
@@ -81,7 +81,7 @@ const ICONS = [
   },
   {
     v: "PPT",
-    s: "fill: antiquewhite; stroke: purple;",
+    s: "fill: antiquewhite; stroke: mistyrose;",
     p: "26,75 153,75 153,150 26,150",
     x: "31",
     f: "font-size: 60px",
@@ -89,7 +89,7 @@ const ICONS = [
   },
   {
     v: "TAR",
-    s: "fill: coral; stroke: purple;",
+    s: "fill: coral; stroke: tomato;",
     p: "30,75 153,75 153,150 30,150",
     x: "35",
     f: "font-size: 60px",
@@ -97,7 +97,7 @@ const ICONS = [
   },
   {
     v: "RAR",
-    s: "fill: firebrick; stroke: purple;",
+    s: "fill: firebrick; stroke: red;",
     p: "29,75 153,75 153,150 29,150",
     x: "33",
     f: "font-size: 60px",
@@ -105,7 +105,7 @@ const ICONS = [
   },
   {
     v: "GZ",
-    s: "fill: darkslategray; stroke: purple;",
+    s: "fill: darkslategray; stroke: slategray;",
     p: "42,65 153,65 153,150 42,150",
     x: "46",
     f: "font-size: 80px",
