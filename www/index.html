@@ -10,17 +10,21 @@
       .wrap {
         flex-flow: row wrap;
       }
-      .text {
-        font-family: Ubuntu, sans-serif;
+      .filter {
+        filter: drop-shadow(-10px 0 2px gray);
+        margin-left: 10px;
+      }
+      text {
+        font-family: Roboto, sans-serif;
         font-weight: 700;
       }
     </style>
   </head>
   <body class="wrap">
-    <svg height="200" width="155">
-      <polygon points="0,50 0,200 140,200 140,0 50,0" />
-      <polygon class="name" points="30,75 153,75 153,150 30,150" />
-      <text y="135" fill="white" style="font-size: 60px">TXT</text>
+    <svg class="filter" height="200" width="155">
+      <polygon stroke-width="10" points="0,50 0,200 140,200 140,0 50,0" />
+      <polygon class="name" />
+      <text y="135">TXT</text>
     </svg>
   </body>
 </html>
