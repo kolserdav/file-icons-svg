@@ -1,0 +1,16 @@
+{
+  "name": "file-icons-svg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "www/index.html",
+  "scripts": {
+    "dev": "node esbuild.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "esbuild": "^0.17.10"
+  }
+}
