@@ -11,21 +11,28 @@
         flex-flow: row wrap;
         position: relative;
       }
-      .filter {
+      .file-icons-filter {
         filter: drop-shadow(-10px 0 2px gray);
         margin-left: 10px;
-      }
-      text {
-        font-family: Roboto, sans-serif;
-        font-weight: 700;
       }
     </style>
   </head>
   <body class="wrap">
-    <svg xmlns="http://www.w3.org/2000/svg" class="filter" height="200" width="155">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="file-icons-filter"
+      height="200"
+      width="155"
+    >
       <polygon stroke-width="1" points="0,50 0,200 140,200 140,0 50,0" />
       <polygon class="name" />
-      <text y="135">TXT</text>
+      <text
+        class="file-icons-text"
+        style="font-family: Roboto, sans-serif; font-weight: 700"
+        y="135"
+      >
+        TXT
+      </text>
     </svg>
   </body>
 </html>

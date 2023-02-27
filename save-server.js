@@ -3,7 +3,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-const ICONS_NAME = "icons";
+const ICONS_NAME = "files";
 const distPath = path.resolve(__dirname, "./dist");
 const iconsPath = path.resolve(distPath, ICONS_NAME);
 
@@ -17,13 +17,22 @@ const server = http.createServer((req, res) => {
     res.end("Bad Request");
     return;
   }
-  const cReg = /&c=.+$/;
-  const c = url.match(cReg);
+  const colorR = /&c=.+$/;
+  const col = url.match(colorR);
+  if (!col) {
+    res.statusCode = 400;
+    res.end("Bad Request");
+    return;
+  }
+  const cc = col[0].replace("&c=", "");
+  const cReg = /&t=.+$/;
+  const _url = url.replace(colorR, "");
+  const c = _url.match(cReg);
   let t = "";
   if (c) {
-    t = c[0].replace("&c=", "");
+    t = c[0].replace("&t=", "");
   }
-  const data = decodeURI(url.replace(cReg, "").replace(/^\/\?d=/, "")).replace(
+  const data = decodeURI(_url.replace(cReg, "").replace(/^\/\?d=/, "")).replace(
     /\s\s/g,
     ""
   );
@@ -50,11 +59,12 @@ const server = http.createServer((req, res) => {
     t,
     ext: `.${ext}`,
     name,
+    color: cc,
   });
   clearTimeout(timeout);
   timeout = setTimeout(() => {
     fs.writeFileSync(
-      path.resolve(distPath, "files.json"),
+      path.resolve(distPath, `${ICONS_NAME}.json`),
       JSON.stringify(files)
     );
   }, 1000);
