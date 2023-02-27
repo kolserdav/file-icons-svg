@@ -1,6 +1,7 @@
 # File icons stack builder
 
-You can generate such SVG icons:
+You can generate such SVG icons:  
+{{< rawhtml >}}
 <svg class="filter" height="200" width="155">
 <polygon stroke-width="1" points="0,50 0,200 140,200 140,0 50,0" style="fill: gray; stroke: lavender;"></polygon>
 <polygon class="name" points="30,75 153,75 153,150 30,150"></polygon>
@@ -62,6 +63,7 @@ You can generate such SVG icons:
 <polygon class="name" points="16,85 153,85 153,150 16,150"></polygon>
 <text y="135" x="20" fill="white" style="font-size: 47px">HTML</text>
 </svg>
+{{< /rawhtml >}}  
 Source of result:
 
 ```html
