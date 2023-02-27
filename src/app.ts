@@ -145,5 +145,7 @@ window.onload = () => {
     text.setAttribute("style", f);
 
     body.appendChild(el);
+
+    fetch(`http://127.0.0.1:3001?d=${encodeURI(el.outerHTML)}`);
   });
 };

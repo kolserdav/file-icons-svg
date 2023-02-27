@@ -6,7 +6,7 @@ const esbuild = require("esbuild");
     bundle: true,
   });
   let port = process.env.PORT || 3000;
-  console.log("listen at port:", port);
+  console.log("Client listen at port:", port);
   await ctx.serve({
     servedir: "www",
     port,
