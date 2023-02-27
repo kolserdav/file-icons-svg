@@ -1,7 +1,9 @@
 # File icons stack builder
 
-You can generate such SVG icons:  
+You can generate such SVG icons:
+
 ![icons https://iili.io/HMyxien.png](https://iili.io/HMyxien.png)
+
 Source of result:
 
 ```html

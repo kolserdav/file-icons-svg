@@ -51,7 +51,7 @@ const ICONS = [
     v: "JSON",
     s: "fill: yellow; stroke: orange;",
     p: "10,82 153,82 153,150 10,150",
-    x: "15",
+    x: "19",
     f: "font-size: 52px",
     c: "white",
   },
