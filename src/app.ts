@@ -6,6 +6,7 @@ const ICONS = [
     x: "35",
     f: "font-size: 60px",
     c: "white",
+    t: "text/plain",
   },
   {
     v: "PDF",
@@ -14,6 +15,7 @@ const ICONS = [
     x: "35",
     f: "font-size: 60px",
     c: "white",
+    t: "application/pdf",
   },
   {
     v: "DOC",
@@ -22,6 +24,7 @@ const ICONS = [
     x: "26",
     f: "font-size: 60px",
     c: "white",
+    t: "application/msword",
   },
   {
     v: "XML",
@@ -30,6 +33,7 @@ const ICONS = [
     x: "21",
     f: "font-size: 60px",
     c: "white",
+    t: "application/xml",
   },
   {
     v: "PSD",
@@ -38,6 +42,7 @@ const ICONS = [
     x: "35",
     f: "font-size: 60px",
     c: "white",
+    t: "application/octet-stream",
   },
   {
     v: "ZIP",
@@ -46,6 +51,7 @@ const ICONS = [
     x: "56",
     f: "font-size: 60px",
     c: "white",
+    t: "application/zip",
   },
   {
     v: "JSON",
@@ -54,6 +60,7 @@ const ICONS = [
     x: "19",
     f: "font-size: 52px",
     c: "white",
+    t: "application/json",
   },
   {
     v: "XLSX",
@@ -62,6 +69,7 @@ const ICONS = [
     x: "15",
     f: "font-size: 55px",
     c: "white",
+    t: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   },
   {
     v: "CSV",
@@ -70,6 +78,7 @@ const ICONS = [
     x: "30",
     f: "font-size: 60px",
     c: "white",
+    t: "text/csv",
   },
   {
     v: "7z",
@@ -78,6 +87,7 @@ const ICONS = [
     x: "58",
     f: "font-size: 80px",
     c: "white",
+    t: "application/x-7z-compressed",
   },
   {
     v: "PPT",
@@ -86,6 +96,7 @@ const ICONS = [
     x: "31",
     f: "font-size: 60px",
     c: "white",
+    t: "application/vnd.ms-powerpoint",
   },
   {
     v: "TAR",
@@ -94,6 +105,7 @@ const ICONS = [
     x: "35",
     f: "font-size: 60px",
     c: "white",
+    t: "application/x-tar",
   },
   {
     v: "RAR",
@@ -102,6 +114,7 @@ const ICONS = [
     x: "33",
     f: "font-size: 60px",
     c: "white",
+    t: "application/vnd.rar",
   },
   {
     v: "GZ",
@@ -110,14 +123,25 @@ const ICONS = [
     x: "46",
     f: "font-size: 80px",
     c: "white",
+    t: "application/gzip",
   },
   {
     v: "HTML",
-    s: "fill: indigo; stroke: purple;",
+    s: "fill: indigo; stroke: darkslateblue;",
     p: "16,85 153,85 153,150 16,150",
     x: "20",
     f: "font-size: 47px",
     c: "white",
+    t: "text/html",
+  },
+  {
+    v: "HTM",
+    s: "fill: darkslateblue; stroke: indigo;",
+    p: "15,75 153,75 153,150 15,150",
+    x: "17",
+    f: "font-size: 60px",
+    c: "white",
+    t: "application/html",
   },
 ];
 
@@ -130,7 +154,7 @@ window.onload = () => {
   }
 
   body.removeChild(temp);
-  ICONS.forEach(({ s, v, p, x, f, c }) => {
+  ICONS.forEach(({ s, v, p, x, f, c, t }) => {
     const el = temp.cloneNode(true) as HTMLElement;
     const pl = el.querySelector("polygon") as SVGPolygonElement;
     pl.setAttribute("style", s);
@@ -146,6 +170,8 @@ window.onload = () => {
 
     body.appendChild(el);
 
-    fetch(`http://127.0.0.1:3001?d=${encodeURI(el.outerHTML)}`);
+    fetch(
+      `http://127.0.0.1:3001?d=${encodeURI(el.outerHTML)}&c=${encodeURI(t)}`
+    );
   });
 };

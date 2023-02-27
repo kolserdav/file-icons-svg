@@ -3,7 +3,12 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
+const ICONS_NAME = "icons";
 const distPath = path.resolve(__dirname, "./dist");
+const iconsPath = path.resolve(distPath, ICONS_NAME);
+
+const files = [];
+let timeout = setTimeout(() => {}, 0);
 
 const server = http.createServer((req, res) => {
   const { url } = req;
@@ -12,18 +17,47 @@ const server = http.createServer((req, res) => {
     res.end("Bad Request");
     return;
   }
-  const data = decodeURI(url.replace(/^\/\?d=/, "")).replace(/\s\s/g, "");
-  const text = data.match(/>[A-Za-z0-9]+<\/text>/);
-  if (text) {
-    const name = text[0].replace(/^>/, "").replace("</text>", "").toLowerCase();
-    const filePath = path.resolve(distPath, `${name}.svg`);
-    if (!fs.existsSync(distPath)) {
-      fs.mkdirSync(distPath);
-    }
-    fs.writeFileSync(filePath, data);
-  } else {
-    console.error("Error parse name");
+  const cReg = /&c=.+$/;
+  const c = url.match(cReg);
+  let t = "";
+  if (c) {
+    t = c[0].replace("&c=", "");
   }
+  const data = decodeURI(url.replace(cReg, "").replace(/^\/\?d=/, "")).replace(
+    /\s\s/g,
+    ""
+  );
+  const text = data.match(/>[A-Za-z0-9]+<\/text>/);
+  if (!text) {
+    console.error("Text is missing");
+    res.statusCode = 500;
+    res.end("Error");
+    return;
+  }
+  const ext = text[0].replace(/^>/, "").replace("</text>", "").toLowerCase();
+  const name = `${ext}.svg`;
+
+  if (!fs.existsSync(distPath)) {
+    fs.mkdirSync(distPath);
+  }
+  if (!fs.existsSync(iconsPath)) {
+    fs.mkdirSync(iconsPath);
+  }
+
+  const filePath = path.resolve(iconsPath, name);
+  fs.writeFileSync(filePath, data);
+  files.push({
+    t,
+    ext: `.${ext}`,
+    name,
+  });
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    fs.writeFileSync(
+      path.resolve(distPath, "files.json"),
+      JSON.stringify(files)
+    );
+  }, 1000);
   res.end("success");
 });
 

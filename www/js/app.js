@@ -7,7 +7,8 @@
       p: "30,75 153,75 153,150 30,150",
       x: "35",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "text/plain"
     },
     {
       v: "PDF",
@@ -15,7 +16,8 @@
       p: "30,75 153,75 153,150 30,150",
       x: "35",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "application/pdf"
     },
     {
       v: "DOC",
@@ -23,7 +25,8 @@
       p: "20,75 153,75 153,150 20,150",
       x: "26",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "application/msword"
     },
     {
       v: "XML",
@@ -31,7 +34,8 @@
       p: "15,75 153,75 153,150 15,150",
       x: "21",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "application/xml"
     },
     {
       v: "PSD",
@@ -39,7 +43,8 @@
       p: "30,75 153,75 153,150 30,150",
       x: "35",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "application/octet-stream"
     },
     {
       v: "ZIP",
@@ -47,7 +52,8 @@
       p: "50,75 153,75 153,150 50,150",
       x: "56",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "application/zip"
     },
     {
       v: "JSON",
@@ -55,7 +61,8 @@
       p: "10,82 153,82 153,150 10,150",
       x: "19",
       f: "font-size: 52px",
-      c: "white"
+      c: "white",
+      t: "application/json"
     },
     {
       v: "XLSX",
@@ -63,7 +70,8 @@
       p: "10,80 153,80 153,150 10,150",
       x: "15",
       f: "font-size: 55px",
-      c: "white"
+      c: "white",
+      t: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     },
     {
       v: "CSV",
@@ -71,7 +79,8 @@
       p: "26,75 153,75 153,150 26,150",
       x: "30",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "text/csv"
     },
     {
       v: "7z",
@@ -79,7 +88,8 @@
       p: "50,65 153,65 153,150 50,150",
       x: "58",
       f: "font-size: 80px",
-      c: "white"
+      c: "white",
+      t: "application/x-7z-compressed"
     },
     {
       v: "PPT",
@@ -87,7 +97,8 @@
       p: "26,75 153,75 153,150 26,150",
       x: "31",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "application/vnd.ms-powerpoint"
     },
     {
       v: "TAR",
@@ -95,7 +106,8 @@
       p: "30,75 153,75 153,150 30,150",
       x: "35",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "application/x-tar"
     },
     {
       v: "RAR",
@@ -103,7 +115,8 @@
       p: "29,75 153,75 153,150 29,150",
       x: "33",
       f: "font-size: 60px",
-      c: "white"
+      c: "white",
+      t: "application/vnd.rar"
     },
     {
       v: "GZ",
@@ -111,15 +124,26 @@
       p: "42,65 153,65 153,150 42,150",
       x: "46",
       f: "font-size: 80px",
-      c: "white"
+      c: "white",
+      t: "application/gzip"
     },
     {
       v: "HTML",
-      s: "fill: indigo; stroke: purple;",
+      s: "fill: indigo; stroke: darkslateblue;",
       p: "16,85 153,85 153,150 16,150",
       x: "20",
       f: "font-size: 47px",
-      c: "white"
+      c: "white",
+      t: "text/html"
+    },
+    {
+      v: "HTM",
+      s: "fill: darkslateblue; stroke: indigo;",
+      p: "15,75 153,75 153,150 15,150",
+      x: "17",
+      f: "font-size: 60px",
+      c: "white",
+      t: "application/html"
     }
   ];
   window.onload = () => {
@@ -130,7 +154,7 @@
       return;
     }
     body.removeChild(temp);
-    ICONS.forEach(({ s, v, p, x, f, c }) => {
+    ICONS.forEach(({ s, v, p, x, f, c, t }) => {
       const el = temp.cloneNode(true);
       const pl = el.querySelector("polygon");
       pl.setAttribute("style", s);
@@ -142,7 +166,9 @@
       text.setAttribute("fill", c);
       text.setAttribute("style", f);
       body.appendChild(el);
-      fetch(`http://127.0.0.1:3001?d=${encodeURI(el.outerHTML)}`);
+      fetch(
+        `http://127.0.0.1:3001?d=${encodeURI(el.outerHTML)}&c=${encodeURI(t)}`
+      );
     });
   };
 })();
